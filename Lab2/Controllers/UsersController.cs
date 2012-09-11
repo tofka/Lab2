@@ -37,10 +37,9 @@ namespace Lab2.Controllers
         // GET: /Create/
         public ActionResult Create()
         {
-            if (SessionManager.CurrentUser == null || 
-                SessionManager.CurrentUser.Type != Models.Entities.User.UserType.Admin)
+            if (SessionManager.CurrentUser == null ||
+                 SessionManager.CurrentUser.Type != Models.Entities.User.UserType.Admin)
                 return RedirectToAction("Index", "Users");
-
             return View();
         }
 
@@ -50,7 +49,7 @@ namespace Lab2.Controllers
         public ActionResult Create(User user)
         {
             if (SessionManager.CurrentUser == null ||
-                SessionManager.CurrentUser.Type != Models.Entities.User.UserType.Admin)
+               SessionManager.CurrentUser.Type != Models.Entities.User.UserType.Admin)
                 return RedirectToAction("Index", "Users");
 
             if (ModelState.IsValid)

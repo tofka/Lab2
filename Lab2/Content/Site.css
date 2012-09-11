@@ -33,6 +33,7 @@ a:active {
 p, ul {
     margin-bottom: 20px;
     line-height: 1.6em;
+    list-style-type: none;
 }
 
 header,
@@ -335,6 +336,11 @@ div .detailspanel
     border-width: thin;
     border-color: #5c87b2;
     box-shadow: 7px 7px 5px #888888;
+}
+
+div .detailspanel dt 
+{
+    font-weight: bold;
 }
 
 ul.post

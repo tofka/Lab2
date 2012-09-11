@@ -1,0 +1,10 @@
+﻿@using Lab2.Models.Entities@model List<ForumThread>
+@using Lab2.Models.SessionManager
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Forum Threads</h2>
+ @if (SessionManager.CurrentUser != null) { 
+       @Html.ActionLink("Create New Post", "CreatePost", "Forums") 
+ }
+@Html.DisplayFor(m => @Model)

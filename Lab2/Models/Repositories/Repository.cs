@@ -119,6 +119,21 @@ namespace Lab2.Models.Repositories
             dataSource[typeof(T).FullName] = list;
         }
 
+        // Hämta en sorterad lista av threads ordnat efter CreateDate
+        public List<ForumThread> GetSortedThreads() {
+            return All<ForumThread>().OrderBy(p => p.CreateDate).ToList();
+        }
+
+        // Hämta tråd med visst ID
+        public ForumThread GetThreadById(Guid id) {
+            return All<ForumThread>().Where(ft => ft.ID == id).FirstOrDefault();
+        }
+
+        // Hämta post med visst ThreadID
+        public List<Post> GetPostsByThreadId(Guid id) {
+            return All<Post>().Where(p => p.ThreadID == id).ToList();
+        }        
+
         // Hämta en sorterad lista av take st. användare med början på skip + 1
         public List<User> GetSortedUsers(int take, int skip)
         {
@@ -135,6 +150,11 @@ namespace Lab2.Models.Repositories
         public List<Post> GetLatestPostForUser(Guid userID, int take)
         {
             return All<Post>().Where(p => p.CreatedByID == userID).Take(take).ToList();
+        }
+
+        // Hämta Admins
+        public List<User> GetSiteAdmins() {
+            return All<User>().Where(u => u.Type == User.UserType.Admin).ToList();
         }
     }
 }

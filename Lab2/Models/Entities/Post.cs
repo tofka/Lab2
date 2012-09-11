@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using Lab2.Models.Entities.Abstract;
 using Lab2.Models.Repositories;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Lab2.Models.Entities
 {
@@ -24,7 +26,10 @@ namespace Lab2.Models.Entities
         private User _CreatedBy { get; set; }
         public Guid CreatedByID { get; set; }
         public User CreatedBy { get { return _CreatedBy; } }
+        [DisplayName("Created")]
         public DateTime CreateDate { get; set; }
+        [DisplayName("Title")]
+        [Required(ErrorMessage = "Title is required!")]
         public string Title { get; set; }
         public string TitleShort 
         { 
@@ -33,6 +38,8 @@ namespace Lab2.Models.Entities
                 return Title.Length > 20 ? Title.Substring(0, 17) + "..." : Title;
             } 
         }
+        [DisplayName("Message")]
+        [Required(ErrorMessage = "Message is required!")]
         public string Body { get; set; }
         public string BodyShort {
             get

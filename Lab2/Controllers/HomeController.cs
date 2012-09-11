@@ -10,7 +10,7 @@ namespace Lab2.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Welcome to ASP.NET MVC!";
+            ViewBag.Message = "Lab 2";
 
             return View();
         }

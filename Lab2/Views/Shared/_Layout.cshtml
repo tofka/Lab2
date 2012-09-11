@@ -20,6 +20,7 @@
             </div>
             <nav>
                 <ul id="menu">
+                    <li>@Html.ActionLink("Forums", "Index", "Forums")</li>
                     <li>@Html.ActionLink("Users", "Index", "Users")</li>
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
@@ -30,6 +31,9 @@
             @RenderBody()
         </section>
         <footer>
+        <div id="footer">
+                @Html.Partial("_FooterPartial")
+            </div>
         </footer>
     </div>
 </body>

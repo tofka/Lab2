@@ -1,0 +1,19 @@
+﻿@using Lab2.Models.Entities@model Post
+           
+@{
+    ViewBag.Title = "CreatePost";
+}
+
+<h2>CreatePost</h2>
+ @{ Html.EnableClientValidation(true); }
+@using (Html.BeginForm()) {
+<div>
+    <p>
+        <span>@Html.LabelFor(p => p.Title)</span>@Html.EditorFor(p => p.Title)<span>@Html.ValidationMessageFor(p => p.Title)</span>
+        <span>@Html.LabelFor(p => p.Body)</span>@Html.EditorFor(p => p.Body)<span>@Html.ValidationMessageFor(p => p.Body)</span>
+    </p>
+</div>
+<div>
+    <input type="submit" value="Create" />
+</div>
+}

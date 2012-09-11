@@ -1,0 +1,12 @@
+﻿@using Lab2.Models.Repositories
+
+@{
+<p>If you experience any problems, please contact:   </p>
+    foreach (var admin in Repository.Instance.GetSiteAdmins()) {
+        <p>@admin.UserName</p>
+    }
+}
+
+
+
+

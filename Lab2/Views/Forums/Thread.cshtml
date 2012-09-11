@@ -1,0 +1,21 @@
+﻿@model Lab2.ViewModels.ThreadViewModel
+@{
+    ViewBag.Title = "Thread";
+}
+@Html.ActionLink("Create New Post", "CreatePost", "Forums", new { id = @Model.ForumThread.ID}, null)
+<h2>@Model.ForumThread.Title</h2>
+<div class="detailspanel">
+<h3>
+@Html.LabelFor(i => i.ForumThread.Title): @Html.DisplayFor(i => i.ForumThread.Title)
+</h3>
+<dl>
+@foreach (var post in Model.Posts) {
+    <dt>@Html.LabelFor(i => post.Title): @Html.DisplayFor(i => post.Title)
+    </dt>
+    <dd>@Html.LabelFor(i => post.CreateDate): @Html.DisplayFor(i => post.CreateDate)
+    </dd>
+    <dd>@Html.LabelFor(i => post.Body): @Html.DisplayFor(i => post.Body)
+    </dd>
+}
+</dl>  
+</div>
